@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* 子メニューは最初は隠す */
+  .child-list {
+    display: none;
+    padding-left: 20px;
+    /* ちょっと右にずらすと見やすいよ */
+    background: #f9f9f9;
+  }
+
+  /* 親に open クラスがついたら子を表示 */
+  .has-child.is-open .child-list {
+    display: block;
+  }
+
+  /* 矢印とかつけるとギャルいかも（任意） */
+  .js-accordion-trigger::after {
+    content: ' ▼';
+    font-size: 0.8em;
+  }
+</style>
+
+<body>
+  <nav class="hamburger-menu" id="js-global-nav">
+    <div class="hamburger-menu-inner">
+      <ul class="hamburger-nav-list">
+        <li><a href="<?php echo esc_url(home_url('/')); ?>">HOME</a></li>
+
+        <!-- 新しく追加するアコーディオン項目 -->
+        <li class="has-child">
+          <a href="javascript:void(0)" class="js-accordion-trigger">CATEGORY</a>
+          <ul class="child-list">
+            <li><a href="<?php echo esc_url(home_url('/category/mtg')); ?>">MTG</a></li>
+            <li><a href="<?php echo esc_url(home_url('/category/boardgame')); ?>">BOARD GAME</a></li>
+            <li><a href="<?php echo esc_url(home_url('/category/game')); ?>">GAME</a></li>
+          </ul>
+        </li>
+
+        <li><a href="<?php echo esc_url(home_url('/category/cartonnage')); ?>">CARTONNAGE</a></li>
+        <li><a href="<?php echo esc_url(home_url('/my-profile')); ?>">PROFILE</a></li>
+        <li><a href="<?php echo esc_url(home_url('/contact')); ?>">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const accordionTriggers = document.querySelectorAll('.js-accordion-trigger');
+
+      accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function () {
+          // 親の li 要素にクラスをトグル
+          this.parentElement.classList.toggle('is-open');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
