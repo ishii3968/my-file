@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLOBALONE DINING | コーポレートサイト</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      appearance: none;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    :root {
+      --smoke-white: #eee9e2;
+      --charcoal: #1c1c1c;
+      --brown: #8b6a4a;
+      --brown-light: #a07d5a;
+      --greige: #b8b0a5;
+      --warm-light: #e8d6b8;
+      --bg: #eee9e2;
+      --bg2: #e6e0d8;
+      --bg3: #f5f2ee;
+      --font-concept: "BIZ UDMincho", "BIZ UDPMincho", "UD Mincho", "Sawarabi Mincho", "Yu Mincho", "MS Mincho", serif;
+      --font-label: "inter", "san-serif", "serif";
+      --text: #1c1c1c;
+      --text-muted: #6a6260;
+      --border: rgba(28, 28, 28, 0.12);
+      --border-brown: rgba(139, 106, 74, 0.25);
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.8;
+      overflow-x: hidden;
+      /* 横スクロール防止 */
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--charcoal);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      backdrop-filter: blur(4px);
+      /* 少しぼかしを入れてリッチに */
+    }
+
+    .header-logo {
+      width: 80px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--smoke-white);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown);
+    }
+
+    /* HERO */
+    .hero {
+      height: 540px;
+      background: var(--smoke-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--brown-light), transparent);
+      opacity: 0.4;
+    }
+
+    .hero-ornament {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      color: var(--greige);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: var(--font-concept);
+      font-size: 44px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--brown);
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px auto 24px;
+      width: 200px;
+    }
+
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--greige);
+      opacity: 0.6;
+    }
+
+    .hero-divider-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--brown);
+      opacity: 0.5;
+    }
+
+    .hero-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      font-weight: 300;
+      max-width: 380px;
+      line-height: 2.2;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.45em;
+      color: var(--greige);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-concept);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0 40px;
+      width: 120px;
+    }
+
+    .divider::before {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--brown);
+      opacity: 0.35;
+    }
+
+    .divider-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--brown);
+      opacity: 0.4;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 2.2;
+      font-size: 13px;
+    }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .stat-item {
+      border-left: 1px solid var(--brown);
+      padding-left: 20px;
+      opacity: 0.9;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--charcoal);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .stat-unit {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--brown);
+      margin-left: 4px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--greige);
+      letter-spacing: 0.2em;
+      margin-top: 6px;
+      font-family: var(--font-label);
+    }
+
+    /* BUSINESS */
+    .business-section {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .business-section .section-label {
+      color: var(--greige);
+      opacity: 0.6;
+    }
+
+    .business-section .section-title {
+      color: var(--smoke-white);
+    }
+
+    .business-section .divider::before {
+      background: var(--warm-light);
+    }
+
+    .business-section .divider-dot {
+      background: var(--warm-light);
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .biz-card {
+      border: 1px solid rgba(184, 176, 165, 0.15);
+      border-radius: 2px;
+      padding: 36px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .biz-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(139, 106, 74, 0.4);
+    }
+
+    .biz-icon {
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .biz-title {
+      font-family: var(--font-concept);
+      font-size: 17px;
+      color: var(--warm-light);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .biz-desc {
+      font-size: 12px;
+      color: var(--greige);
+      line-height: 2.1;
+    }
+
+    /* SHOP */
+    .shop-card {
+      border: 1px solid var(--border-brown);
+      border-radius: 2px;
+      padding: 44px;
+      background: var(--bg3);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .shop-badge {
+      width: 150px;
+      height: 150px;
+      /* border-radius: 50%; */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shop-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .shop-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      border: 1px solid var(--border-brown);
+      color: var(--brown);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+      border-radius: 1px;
+      text-transform: uppercase;
+    }
+
+    .shop-detail {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 2.4;
+    }
+
+    .shop-detail-text {
+      margin-top: 2vh;
+      margin-bottom: 2.2vh;
+      line-height: 2.6vh;
+    }
+
+    .map-button {
+      display: inline-block;
+      background-color: #b8b0a5;
+      color: #ffffff;
+      margin: 5px 12px;
+      padding: 5px 16px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-family: sans-serif;
+    }
+
+    .map-button:hover {
+      background-color: #c7bfb4;
+    }
+
+    /* COMPANY INFO */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table td {
+      padding: 18px 8px;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    .info-table td:first-child {
+      font-family: 'Inter', sans-serif;
+      color: var(--brown);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      width: 160px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .info-table td:last-child {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--bg2);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-section section {
+      max-width: 600px;
+    }
+
+    .contact-cta {
+      display: inline-block;
+      margin-top: 8px;
+      border: 1px solid var(--charcoal);
+      color: var(--charcoal);
+      padding: 14px 52px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.3s;
+      cursor: pointer;
+      background: transparent;
+      text-transform: uppercase;
+    }
+
+    .contact-cta:hover {
+      background: var(--charcoal);
+      color: var(--smoke-white);
+    }
+
+    .contact-note {
+      font-size: 11px;
+      color: var(--greige);
+      margin-top: 18px;
+      letter-spacing: 0.08em;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--smoke-white);
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--greige);
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+    }
+
+
+
+    /* レスポンシブデザイン */
+
+    @media screen and (max-width: 768px) {
+
+      /* 全体のセクション余白をスマホサイズに縮小 */
+      section {
+        padding: 60px 24px;
+      }
+
+      /* ナビゲーション：縦並びにして画面内に収める */
+      nav {
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+
+      /* ヒーローエリア：高さを抑え、フォントサイズを調整 */
+      .hero {
+        height: 420px;
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.4;
+      }
+
+      .hero-ornament {
+        font-size: 8px;
+        letter-spacing: 0.3em;
+        margin-bottom: 20px;
+      }
+
+      .hero-sub {
+        font-size: 11px;
+      }
+
+      /* Aboutセクション：1カラムにして、数字データは横並びに */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        background: rgba(139, 106, 74, 0.03);
+        /* 少し背景色を敷いてまとまりを出す */
+        padding: 24px;
+        border-radius: 4px;
+      }
+
+      .stat-item {
+        border-left: none;
+        border-top: 1px solid var(--border-brown);
+        padding-left: 0;
+        padding-top: 16px;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .stat-item:first-child {
+        border-top: none;
+        /* スマホ時の最初の上線は不要なら消す等の微調整 */
+        padding-top: 0;
+      }
+
+      /* Shopセクション：アイコンとテキストを縦並び・中央揃えに */
+      .shop-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+        padding: 40px 24px;
+      }
+
+      .shop-badge {
+        margin: 0 auto;
+      }
+
+      .shop-tag {
+        margin: 0 auto 16px;
+      }
+
+      /* 会社情報テーブル：項目と内容を縦並びに展開して読みやすく */
+      .info-table td {
+        display: block;
+        width: 100% !important;
+        padding: 10px 0;
+      }
+
+      .info-table td:first-child {
+        border-bottom: none;
+        padding-bottom: 2px;
+        color: var(--brown-light);
+      }
+
+      .info-table td:last-child {
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      /* フッター：縦並びにして中央揃え */
+      footer {
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px 20px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <img class="header-logo" src="GD_tate_w@2x-8.png" alt="GODlogo">
+
+    <ul class="nav-links">
+      <li><a href="#about">会社概要</a></li>
+      <li><a href="#business">事業内容</a></li>
+      <li><a href="#shop">店舗情報</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-ornament">Globalone Dining</div>
+    <h1>日本の食文化を<br><em>次の世代、世界へ</em>届ける</h1>
+    <div class="hero-divider">
+      <div class="hero-divider-dot"></div>
+    </div>
+    <p class="hero-sub">Connecting Traditions Globally.
+    </p>
+  </div>
+
+  <div id="about">
+    <section>
+      <div class="section-label">About Us</div>
+      <div class="section-title">わたしたちについて</div>
+      <div class="divider">
+        <div class="divider-dot"></div>
+      </div>
+      <div class="about-grid">
+        <p class="about-text">
+          GLOBALONE DININGは、飲食事業を軸に、日本の食文化を次の世代へ、そして世界へ届けていくことを目的に、飲食領域における新たな挑戦を担います<br><br>
+          浅草でラーメン店を経営しながら、地域に根ざした事業を展開。食という身近な体験と、空間という社会的インフラを掛け合わせ、新しい価値創造を目指しています。
+        </p>
+
+      </div>
+    </section>
+  </div>
+
+  <div id="business" class="business-section">
+    <section>
+      <div class="section-label">Business</div>
+      <div class="section-title">事業内容　(ここ必要？)</div>
+      <div class="divider">
+        <div class="divider-dot"></div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-icon">
+          <p class="biz-desc">（なんか画像入れるか？）</p>
+        </div>
+        <div class="biz-title">飲食事業</div>
+        <p class="biz-desc">浅草を拠点に、本格ラーメンを提供。地域の食文化に貢献しながら、独自のブランド価値を磨いています。</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="shop">
+    <section>
+      <div class="section-label">Shop</div>
+      <div class="section-title">店舗情報</div>
+      <div class="divider">
+        <div class="divider-dot"></div>
+      </div>
+      <div class="shop-card">
+        <div class="shop-badge">
+          <img class="shop-badge img" src="C:\Users\yishi\OneDrive\ドキュメント\htmlバックアップ\GOD\店舗外観ｎ.png"
+            alt="Gemini_Generated_Image_trazg1trazg1traz.png">
+        </div>
+        <div class="shop-info">
+
+          <h3>富士虎屋 浅草店</h3>
+          <div class="shop-detail">
+            <p class="shop-detail-text">200年以上にわたり受け継がれてきた老舗醤油蔵「大高醤油」の味わいを、
+              現代の感性と技術で丁寧に引き出し、“本質的な美味しさ”を追求した一杯を提供します
+            </p>
+            【 2026年2月10日 OPEN 】<br>
+            📍 〒111-0033 東京都台東区花川戸２丁目１６−１ 言問レジデンス 1F<a href="https://maps.app.goo.gl/NSFWsJgjPbczs3F49"
+              class="map-button" target="_blank" rel="noopener noreferrer">
+              Google Mapで開く
+            </a><br>
+
+            🕐 営業時間：11:00~22:00 年中無休（※当日の提供分がなくなり次第終了いたします）<br>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="company">
+    <section>
+      <div class="section-label">Company</div>
+      <div class="section-title">会社情報</div>
+      <div class="divider">
+        <div class="divider-dot"></div>
+      </div>
+      <table class="info-table">
+        <tr>
+          <td>Company</td>
+          <td>GLOBALONE DINING 株式会社</td>
+        </tr>
+        <tr>
+          <td>Headquarters</td>
+          <td>〒285-0813 <br>千葉県佐倉市石川559-62　（どの電話番号？）</td>
+        </tr>
+        <tr>
+          <td>Industry</td>
+          <td>飲食業</td>
+        </tr>
+        <tr>
+          <td>Shop</td>
+          <td>ラーメン店（東京都台東区浅草）</td>
+        </tr>
+
+      </table>
+    </section>
+  </div>
+
+  <div id="contact" class="contact-section">
+    <section>
+      <div class="section-label">Contact</div>
+      <div class="section-title">お問い合わせ</div>
+      <div class="divider" style="margin: 16px auto 40px;">
+        <div class="divider-dot"></div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 36px; font-weight: 300;">
+        採用・事業に関するご相談など、<br>お気軽にお問い合わせください。
+      </p>
+      <a href="mailto:info@globalone-dining.com" class="contact-cta">Contact Us</a>
+      <p class="contact-note">※ メールアドレスはまだ未設定</p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-logo">GLOBALONE DINING</div>
+    <div class="footer-copy">© 2024 GLOBALONE DINING. All Rights Reserved.</div>
+  </footer>
+
+</body>
+
+</html>
