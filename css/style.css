@@ -108,7 +108,7 @@
     /* HERO */
     .hero {
       height: 540px;
-      background: var(--smoke-white);
+      background-image:url("gemini_generated_Image_bfd75sbfd75sbfd7.png"); 
       display: flex;
       flex-direction: column;
       justify-content: center;
