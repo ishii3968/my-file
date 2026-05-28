@@ -105,10 +105,10 @@
       color: var(--brown);
     }
 
+
     /* HERO */
     .hero {
       height: 540px;
-      background-image:url("img/Gemini_Generated_Image_7z15ai7z15ai7z15.png"); 
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -118,6 +118,39 @@
       overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('http://4375851f013de332.main.jp/global1.co.jp/img/黒.png') no-repeat center / cover;
+      animation: slowZoom 10s ease-in-out infinite alternate;
+    }
+
+    .hero-ornament,
+    .hero h1,
+    .hero-divider,
+    .hero-sub {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes slowZoom {
+      0% {
+        transform: scale(1);
+        /* 最初は元のサイズ（1倍） */
+      }
+
+      100% {
+        transform: scale(1.1);
+        /* 15秒かけて1.1倍（10%拡大）にする */
+      }
+    }
+
 
     .hero::before {
       content: '';
@@ -144,14 +177,123 @@
       font-size: 44px;
       font-weight: 400;
       letter-spacing: 0.05em;
-      color: var(--charcoal);
+      color: var(--smoke-white);
       line-height: 1.35;
       margin-bottom: 20px;
     }
 
     .hero h1 em {
       font-style: italic;
-      color: var(--brown);
+      color: var(--brown-light);
+    }
+
+
+    /* 1. 最初の状態（文字をあらかじめ透明にしておく） */
+    .hero h1 span {
+      display: inline-block;
+      /* 文字を滑らかに動かすために必要 */
+      opacity: 0;
+      /* 最初は完全に透明 */
+      transform: translateY(10px);
+      /* 少しだけ下に下げておく */
+
+      /* アニメーションの指定（0.8秒かけて、ふわっと上に動きながら現れる） */
+      animation: fudeInUp 0.8s forwards;
+    }
+
+    /* 2. 【心臓部】一文字ずつの登場タイミングをずらす設定（ディレイ） */
+    /* 数字（秒数）を変えることで、表示されるテンポを調整できます */
+    .hero h1 span:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .hero h1 span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .hero h1 span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .hero h1 span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .hero h1 span:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .hero h1 span:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .hero h1 span:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    /* 改行後の em（斜体）の中の文字のタイミング */
+    .hero h1 em span:nth-child(1) {
+      animation-delay: 0.8s;
+    }
+
+    .hero h1 em span:nth-child(2) {
+      animation-delay: 0.9s;
+    }
+
+    .hero h1 em span:nth-child(3) {
+      animation-delay: 1.0s;
+    }
+
+    .hero h1 em span:nth-child(4) {
+      animation-delay: 1.1s;
+    }
+
+    .hero h1 em span:nth-child(5) {
+      animation-delay: 1.2s;
+    }
+
+    .hero h1 em span:nth-child(6) {
+      animation-delay: 1.3s;
+    }
+
+    .hero h1 em span:nth-child(7) {
+      animation-delay: 1.4s;
+    }
+
+    .hero h1 em span:nth-child(8) {
+      animation-delay: 1.5s;
+    }
+
+    /* 最後の「届ける」のタイミング */
+    .hero h1 span:nth-child(9) {
+      animation-delay: 1.6s;
+    }
+
+    .hero h1 span:nth-child(10) {
+      animation-delay: 1.7s;
+    }
+
+    .hero h1 span:nth-child(11) {
+      animation-delay: 1.8s;
+    }
+
+    .hero h1 span:nth-child(12) {
+      animation-delay: 1.9s;
+    }
+
+    /* 3. 「どのように動かすか」のアニメーション指示書き */
+    @keyframes fudeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+        /* スタート：透明で少し下 */
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* ゴール：くっきり元の位置 */
+      }
     }
 
     .hero-divider {
@@ -181,7 +323,7 @@
 
     .hero-sub {
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--greige);
       letter-spacing: 0.12em;
       font-weight: 300;
       max-width: 380px;
@@ -285,6 +427,8 @@
       margin-top: 6px;
       font-family: var(--font-label);
     }
+
+
 
     /* BUSINESS */
     .business-section {
@@ -486,6 +630,28 @@
       margin-top: 18px;
       letter-spacing: 0.08em;
     }
+
+
+    .inst-icon {
+      margin: 0 auto;
+      place-items: center;
+      align-content: center;
+      position: relative;
+      bottom: 5vh;
+    }
+
+    .inst-icon a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+
+    }
+
+    .inst-icon img {
+      width: 30px;
+      height: 30px;
+    }
+
 
     /* FOOTER */
     footer {
