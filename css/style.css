@@ -560,6 +560,19 @@
       background-color: #c7bfb4;
     }
 
+    .google-map {
+      width: 100%;
+      height: 80%;
+      margin: 5vh auto;
+    }
+
+    .map {
+      width: 100%;
+      height: 50vh;
+    }
+
+
+
     /* COMPANY INFO */
     .info-table {
       width: 100%;
@@ -649,7 +662,7 @@
 
     .inst-icon img {
       width: 30px;
-      height: 30px;
+      height: auto;
     }
 
 
